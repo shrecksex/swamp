@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/fileuploads', 'FileController@uploadFile');
+// Route::post('/checkTask', 'ApiAppController@checkTask');
