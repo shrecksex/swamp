@@ -37,7 +37,7 @@
 			<h4><b>Документы</b></h4>
 			<div v-for="file in files" :key="file.id">
 				<i class="far mr-2 fa-trash-alt text-danger" @click="deletes(file.id)"></i>
-				<a :href="file.path">
+				<a :href="'/storage/'+file.path">
 					{{file.name}}
 				</a>
 			 </div>
@@ -96,11 +96,10 @@ export default {
 						}
 					}
 				).then(res => {
-					console.log(res.data);
 					this.getfiles();
+					this.$refs.file.value = '';
 				})
 				.catch(function() {
-					console.log('FAILURE!!');
 				});
 		},
 		getfiles() {
@@ -112,7 +111,6 @@ export default {
 			axios.post("/delete", {
 				'id': id
 			}).then(res => {
-				console.log(res.data);
 				this.getfiles();
 			});
 		},

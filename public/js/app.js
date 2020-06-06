@@ -2005,12 +2005,10 @@ __webpack_require__.r(__webpack_exports__);
           'Content-Type': 'multipart/form-data'
         }
       }).then(function (res) {
-        console.log(res.data);
-
         _this.getfiles();
-      })["catch"](function () {
-        console.log('FAILURE!!');
-      });
+
+        _this.$refs.file.value = '';
+      })["catch"](function () {});
     },
     getfiles: function getfiles() {
       var _this2 = this;
@@ -2025,8 +2023,6 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("/delete", {
         'id': id
       }).then(function (res) {
-        console.log(res.data);
-
         _this3.getfiles();
       });
     },
@@ -37639,7 +37635,7 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("a", { attrs: { href: file.path } }, [
+              _c("a", { attrs: { href: "/storage/" + file.path } }, [
                 _vm._v("\n\t\t\t\t\t" + _vm._s(file.name) + "\n\t\t\t\t")
               ])
             ])

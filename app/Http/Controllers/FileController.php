@@ -29,6 +29,7 @@ class FileController extends Controller
 
      public function delete(Request $request){
        $files = File::find($request->id);
+       Storage::delete( "public/".$files->path);
        $files->delete();
        return "true";
      }
