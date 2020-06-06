@@ -1970,6 +1970,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {// console.log('Component mounted.')
   },
@@ -37585,9 +37594,7 @@ var render = function() {
     _vm._v(" "),
     _vm._m(3),
     _vm._v(" "),
-    _vm._m(4),
-    _vm._v(" "),
-    _vm._m(5)
+    _vm._m(4)
   ])
 }
 var staticRenderFns = [
@@ -37628,29 +37635,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "div" }, [
-        _c("div", { staticClass: "md-form form-group mt-5" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              id: "formGroupExampleInputMD",
-              placeholder: "Фрезеровщик"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "formGroupExampleInputMD" } }, [
-            _vm._v("Проффесия")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row mt-4" }, [
       _c("div", { staticClass: "col-6" }, [
         _c("h4", [_c("b", [_vm._v("Документы")])]),
@@ -37672,7 +37656,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-6" }, [
-        _c("h4", [_c("b", [_vm._v("Тематики")])]),
+        _c("h4", [_c("b", [_vm._v("Нормативно правовые акты")])]),
         _vm._v(" "),
         _c("div", { staticClass: "custom-control custom-checkbox" }, [
           _c("input", {
@@ -37686,7 +37670,7 @@ var staticRenderFns = [
               staticClass: "custom-control-label",
               attrs: { for: "defaultUnchecke" }
             },
-            [_vm._v("Безопасность")]
+            [_vm._v("Трудовой кодекс Российской Федерации")]
           )
         ]),
         _vm._v(" "),
@@ -37702,7 +37686,43 @@ var staticRenderFns = [
               staticClass: "custom-control-label",
               attrs: { for: "defaultUnchecked" }
             },
-            [_vm._v("Должностные инструкции")]
+            [
+              _vm._v(
+                'Федеральный закон Российской Федерации от 17 июля 1999 г. № 181-ФЗ "Об основах охраны труда в Российской Федерации"\n\t\t\t\t'
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-control custom-checkbox" }, [
+          _c("input", {
+            staticClass: "custom-control-input",
+            attrs: { type: "checkbox", id: "defaultUnchecke" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "custom-control-label",
+              attrs: { for: "defaultUnchecke" }
+            },
+            [_vm._v("СанПиН")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-control custom-checkbox" }, [
+          _c("input", {
+            staticClass: "custom-control-input",
+            attrs: { type: "checkbox", id: "defaultUnched" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "custom-control-label",
+              attrs: { for: "defaultUnched" }
+            },
+            [_vm._v("СНиП\t")]
           )
         ])
       ])

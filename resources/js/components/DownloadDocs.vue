@@ -24,14 +24,14 @@
 			<!-- <button type="button" @click="submitFile()" class="btn btn-cyan rounded" name="button">Загрузить</button> -->
 		</div>
 	</div>
-	<div class="row">
+	<!-- <div class="row">
 		<div class="div">
 			<div class="md-form form-group mt-5">
 				<input type="text" class="form-control" id="formGroupExampleInputMD" placeholder="Фрезеровщик">
 				<label for="formGroupExampleInputMD">Проффесия</label>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<div class="row mt-4">
 		<div class="col-6">
 			<h4><b>Документы</b></h4>
@@ -40,14 +40,23 @@
 			<div><i class="far mr-2 fa-trash-alt text-danger"></i> Документ 3 </div>
 		</div>
 		<div class="col-6">
-			<h4><b>Тематики</b></h4>
+			<h4><b>Нормативно правовые акты</b></h4>
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox" class="custom-control-input" id="defaultUnchecke">
-				<label class="custom-control-label" for="defaultUnchecke">Безопасность</label>
+				<label class="custom-control-label" for="defaultUnchecke">Трудовой кодекс Российской Федерации</label>
 			</div>
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-				<label class="custom-control-label" for="defaultUnchecked">Должностные инструкции</label>
+				<label class="custom-control-label" for="defaultUnchecked">Федеральный закон Российской Федерации от 17 июля 1999 г. № 181-ФЗ "Об основах охраны труда в Российской Федерации"
+				</label>
+			</div>
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox" class="custom-control-input" id="defaultUnchecke">
+				<label class="custom-control-label" for="defaultUnchecke">СанПиН</label>
+			</div>
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox" class="custom-control-input" id="defaultUnched">
+				<label class="custom-control-label" for="defaultUnched">СНиП	</label>
 			</div>
 
 		</div>
