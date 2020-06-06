@@ -15,7 +15,7 @@
       </ul>
       <ul class="navbar-nav nav-flex-icons">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Загрузить документ</a>
+          <a class="nav-link" href="/add">Загрузить документ</a>
         </li>
       </ul>
     </div>

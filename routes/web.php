@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/add', function () {
     return view('welcome');
 });
 
 Route::post('/fileuploads', 'FileController@uploadFile');
-Route::get('/getlending', 'MainController@getlending');
+Route::get('/', 'MainController@getlending');
 Route::get('/test', 'TestController@test');
 // Route::post('/checkTask', 'ApiAppController@checkTask');
