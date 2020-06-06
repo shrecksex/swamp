@@ -1979,26 +1979,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {// console.log('Component mounted.')
+  mounted: function mounted() {
+    // console.log('Component mounted.')
+    this.getfiles();
   },
   data: function data() {
     return {
-      file: ''
+      file: '',
+      files: []
     };
   },
   methods: {
     submitFile: function submitFile() {
+      var _this = this;
+
       var formData = new FormData();
       formData.append('file', this.file);
+      formData.append('name', this.file.name);
       axios.post('/fileuploads', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       }).then(function (res) {
         console.log(res.data);
+
+        _this.getfiles();
       })["catch"](function () {
         console.log('FAILURE!!');
+      });
+    },
+    getfiles: function getfiles() {
+      var _this2 = this;
+
+      axios.post("/getfiles", {}).then(function (res) {
+        _this2.files = res.data;
+      });
+    },
+    deletes: function deletes(id) {
+      var _this3 = this;
+
+      axios.post("/delete", {
+        'id': id
+      }).then(function (res) {
+        console.log(res.data);
+
+        _this3.getfiles();
       });
     },
     handleFileUpload: function handleFileUpload() {
@@ -37592,9 +37621,37 @@ var render = function() {
     _vm._v(" "),
     _vm._m(2),
     _vm._v(" "),
-    _vm._m(3),
+    _c("div", { staticClass: "row mt-4" }, [
+      _c(
+        "div",
+        { staticClass: "col-6" },
+        [
+          _vm._m(3),
+          _vm._v(" "),
+          _vm._l(_vm.files, function(file) {
+            return _c("div", { key: file.id }, [
+              _c("i", {
+                staticClass: "far mr-2 fa-trash-alt text-danger",
+                on: {
+                  click: function($event) {
+                    return _vm.deletes(file.id)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("a", { attrs: { href: file.path } }, [
+                _vm._v("\n\t\t\t\t\t" + _vm._s(file.name) + "\n\t\t\t\t")
+              ])
+            ])
+          })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _vm._m(4)
+    ]),
     _vm._v(" "),
-    _vm._m(4)
+    _vm._m(5)
   ])
 }
 var staticRenderFns = [
@@ -37635,96 +37692,81 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mt-4" }, [
-      _c("div", { staticClass: "col-6" }, [
-        _c("h4", [_c("b", [_vm._v("Документы")])]),
+    return _c("h4", [_c("b", [_vm._v("Документы")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-6" }, [
+      _c("h4", [_c("b", [_vm._v("Нормативно правовые акты")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "custom-control custom-checkbox" }, [
+        _c("input", {
+          staticClass: "custom-control-input",
+          attrs: { type: "checkbox", id: "defaultUnchecke" }
+        }),
         _vm._v(" "),
-        _c("div", [
-          _c("i", { staticClass: "far mr-2 fa-trash-alt text-danger" }),
-          _vm._v(" Документ 1 ")
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("i", { staticClass: "far mr-2 fa-trash-alt text-danger" }),
-          _vm._v(" Документ 2 ")
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("i", { staticClass: "far mr-2 fa-trash-alt text-danger" }),
-          _vm._v(" Документ 3 ")
-        ])
+        _c(
+          "label",
+          {
+            staticClass: "custom-control-label",
+            attrs: { for: "defaultUnchecke" }
+          },
+          [_vm._v("Трудовой кодекс Российской Федерации")]
+        )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-6" }, [
-        _c("h4", [_c("b", [_vm._v("Нормативно правовые акты")])]),
+      _c("div", { staticClass: "custom-control custom-checkbox" }, [
+        _c("input", {
+          staticClass: "custom-control-input",
+          attrs: { type: "checkbox", id: "defaultUnchecked" }
+        }),
         _vm._v(" "),
-        _c("div", { staticClass: "custom-control custom-checkbox" }, [
-          _c("input", {
-            staticClass: "custom-control-input",
-            attrs: { type: "checkbox", id: "defaultUnchecke" }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "custom-control-label",
-              attrs: { for: "defaultUnchecke" }
-            },
-            [_vm._v("Трудовой кодекс Российской Федерации")]
-          )
-        ]),
+        _c(
+          "label",
+          {
+            staticClass: "custom-control-label",
+            attrs: { for: "defaultUnchecked" }
+          },
+          [
+            _vm._v(
+              'Федеральный закон Российской Федерации от 17 июля 1999 г. № 181-ФЗ "Об основах охраны труда в Российской Федерации"\n\t\t\t\t'
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "custom-control custom-checkbox" }, [
+        _c("input", {
+          staticClass: "custom-control-input",
+          attrs: { type: "checkbox", id: "defaultUnchecke" }
+        }),
         _vm._v(" "),
-        _c("div", { staticClass: "custom-control custom-checkbox" }, [
-          _c("input", {
-            staticClass: "custom-control-input",
-            attrs: { type: "checkbox", id: "defaultUnchecked" }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "custom-control-label",
-              attrs: { for: "defaultUnchecked" }
-            },
-            [
-              _vm._v(
-                'Федеральный закон Российской Федерации от 17 июля 1999 г. № 181-ФЗ "Об основах охраны труда в Российской Федерации"\n\t\t\t\t'
-              )
-            ]
-          )
-        ]),
+        _c(
+          "label",
+          {
+            staticClass: "custom-control-label",
+            attrs: { for: "defaultUnchecke" }
+          },
+          [_vm._v("СанПиН")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "custom-control custom-checkbox" }, [
+        _c("input", {
+          staticClass: "custom-control-input",
+          attrs: { type: "checkbox", id: "defaultUnched" }
+        }),
         _vm._v(" "),
-        _c("div", { staticClass: "custom-control custom-checkbox" }, [
-          _c("input", {
-            staticClass: "custom-control-input",
-            attrs: { type: "checkbox", id: "defaultUnchecke" }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "custom-control-label",
-              attrs: { for: "defaultUnchecke" }
-            },
-            [_vm._v("СанПиН")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "custom-control custom-checkbox" }, [
-          _c("input", {
-            staticClass: "custom-control-input",
-            attrs: { type: "checkbox", id: "defaultUnched" }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "custom-control-label",
-              attrs: { for: "defaultUnched" }
-            },
-            [_vm._v("СНиП\t")]
-          )
-        ])
+        _c(
+          "label",
+          {
+            staticClass: "custom-control-label",
+            attrs: { for: "defaultUnched" }
+          },
+          [_vm._v("СНиП ")]
+        )
       ])
     ])
   },

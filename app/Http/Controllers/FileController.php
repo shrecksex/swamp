@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
-use File;
+use App\File;
 
 class FileController extends Controller
 {
@@ -14,11 +14,22 @@ class FileController extends Controller
            $path = Storage::put('public', $file);
            $path = str_replace("public/", "", $path);
            $file = new File();
-           $file->name = 'Документ';
+           $file->name = $request->name;
            $file->path = $path;
            $file->save();
            return $path;
        }
        return 'false';
+     }
+
+     public function getFiles(Request $request){
+       $files = File::all();
+       return $files;
+     }
+
+     public function delete(Request $request){
+       $files = File::find($request->id);
+       $files->delete();
+       return "true";
      }
 }

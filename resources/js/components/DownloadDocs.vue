@@ -35,9 +35,12 @@
 	<div class="row mt-4">
 		<div class="col-6">
 			<h4><b>Документы</b></h4>
-			<div><i class="far mr-2 fa-trash-alt text-danger"></i> Документ 1 </div>
-			<div><i class="far mr-2 fa-trash-alt text-danger"></i> Документ 2 </div>
-			<div><i class="far mr-2 fa-trash-alt text-danger"></i> Документ 3 </div>
+			<div v-for="file in files" :key="file.id">
+				<i class="far mr-2 fa-trash-alt text-danger" @click="deletes(file.id)"></i>
+				<a :href="file.path">
+					{{file.name}}
+				</a>
+			 </div>
 		</div>
 		<div class="col-6">
 			<h4><b>Нормативно правовые акты</b></h4>
@@ -56,7 +59,7 @@
 			</div>
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox" class="custom-control-input" id="defaultUnched">
-				<label class="custom-control-label" for="defaultUnched">СНиП	</label>
+				<label class="custom-control-label" for="defaultUnched">СНиП </label>
 			</div>
 
 		</div>
@@ -73,16 +76,19 @@
 export default {
 	mounted() {
 		// console.log('Component mounted.')
+		this.getfiles();
 	},
 	data() {
 		return {
-			file: ''
+			file: '',
+			files: [],
 		}
 	},
 	methods: {
 		submitFile() {
 			let formData = new FormData();
 			formData.append('file', this.file);
+			formData.append('name', this.file.name);
 			axios.post('/fileuploads',
 					formData, {
 						headers: {
@@ -91,10 +97,24 @@ export default {
 					}
 				).then(res => {
 					console.log(res.data);
+					this.getfiles();
 				})
 				.catch(function() {
 					console.log('FAILURE!!');
 				});
+		},
+		getfiles() {
+			axios.post("/getfiles", {}).then(res => {
+				this.files = res.data;
+			});
+		},
+		deletes(id) {
+			axios.post("/delete", {
+				'id': id
+			}).then(res => {
+				console.log(res.data);
+				this.getfiles();
+			});
 		},
 		handleFileUpload() {
 			this.file = this.$refs.file.files[0];
