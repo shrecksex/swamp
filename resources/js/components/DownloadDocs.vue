@@ -1,10 +1,10 @@
 <template>
-<div class="container p-5 white">
+<div class="container p-5 white d-zepth-2">
 	<div class="row mb-4">
 		<div class="col-6">
 			<h4><b>Загрузка документа</b></h4>
 		</div>
-		<div class="col-6 text-right mt-1 ">Шаг 1</div>
+		<!-- <div class="col-6 text-right mt-1 ">Шаг 1</div> -->
 	</div>
 	<div class="row">
 		<div class="col">
@@ -21,7 +21,40 @@
 	</div>
 	<div class="row mt-4">
 		<div class="col text-right">
-			<button type="button" @click="submitFile()" class="btn btn-primary" name="button">Далее</button>
+			<!-- <button type="button" @click="submitFile()" class="btn btn-cyan rounded" name="button">Загрузить</button> -->
+		</div>
+	</div>
+	<div class="row">
+		<div class="div">
+			<div class="md-form form-group mt-5">
+				<input type="text" class="form-control" id="formGroupExampleInputMD" placeholder="Фрезеровщик">
+				<label for="formGroupExampleInputMD">Проффесия</label>
+			</div>
+		</div>
+	</div>
+	<div class="row mt-4">
+		<div class="col-6">
+			<h4><b>Документы</b></h4>
+			<div><i class="far mr-2 fa-trash-alt text-danger"></i> Документ 1 </div>
+			<div><i class="far mr-2 fa-trash-alt text-danger"></i> Документ 2 </div>
+			<div><i class="far mr-2 fa-trash-alt text-danger"></i> Документ 3 </div>
+		</div>
+		<div class="col-6">
+			<h4><b>Тематики</b></h4>
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox" class="custom-control-input" id="defaultUnchecke">
+				<label class="custom-control-label" for="defaultUnchecke">Безопасность</label>
+			</div>
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+				<label class="custom-control-label" for="defaultUnchecked">Должностные инструкции</label>
+			</div>
+
+		</div>
+	</div>
+	<div class="row mt-5">
+		<div class="col text-center">
+			<button type="button" class="btn btn-cyan">Сформировать</button>
 		</div>
 	</div>
 </div>
@@ -56,6 +89,7 @@ export default {
 		},
 		handleFileUpload() {
 			this.file = this.$refs.file.files[0];
+			this.submitFile()
 		}
 	}
 }

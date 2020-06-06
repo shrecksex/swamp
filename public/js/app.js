@@ -1937,6 +1937,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {// console.log('Component mounted.')
   },
@@ -1961,6 +1994,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     handleFileUpload: function handleFileUpload() {
       this.file = this.$refs.file.files[0];
+      this.submitFile();
     }
   }
 });
@@ -37510,7 +37544,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container p-5 white" }, [
+  return _c("div", { staticClass: "container p-5 white d-zepth-2" }, [
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
@@ -37547,23 +37581,13 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "row mt-4" }, [
-      _c("div", { staticClass: "col text-right" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary",
-            attrs: { type: "button", name: "button" },
-            on: {
-              click: function($event) {
-                return _vm.submitFile()
-              }
-            }
-          },
-          [_vm._v("Далее")]
-        )
-      ])
-    ])
+    _vm._m(2),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4),
+    _vm._v(" "),
+    _vm._m(5)
   ])
 }
 var staticRenderFns = [
@@ -37574,9 +37598,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row mb-4" }, [
       _c("div", { staticClass: "col-6" }, [
         _c("h4", [_c("b", [_vm._v("Загрузка документа")])])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-6 text-right mt-1 " }, [_vm._v("Шаг 1")])
+      ])
     ])
   },
   function() {
@@ -37592,6 +37614,112 @@ var staticRenderFns = [
         },
         [_vm._v("Upload")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mt-4" }, [
+      _c("div", { staticClass: "col text-right" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "div" }, [
+        _c("div", { staticClass: "md-form form-group mt-5" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              id: "formGroupExampleInputMD",
+              placeholder: "Фрезеровщик"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "formGroupExampleInputMD" } }, [
+            _vm._v("Проффесия")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mt-4" }, [
+      _c("div", { staticClass: "col-6" }, [
+        _c("h4", [_c("b", [_vm._v("Документы")])]),
+        _vm._v(" "),
+        _c("div", [
+          _c("i", { staticClass: "far mr-2 fa-trash-alt text-danger" }),
+          _vm._v(" Документ 1 ")
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("i", { staticClass: "far mr-2 fa-trash-alt text-danger" }),
+          _vm._v(" Документ 2 ")
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("i", { staticClass: "far mr-2 fa-trash-alt text-danger" }),
+          _vm._v(" Документ 3 ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-6" }, [
+        _c("h4", [_c("b", [_vm._v("Тематики")])]),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-control custom-checkbox" }, [
+          _c("input", {
+            staticClass: "custom-control-input",
+            attrs: { type: "checkbox", id: "defaultUnchecke" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "custom-control-label",
+              attrs: { for: "defaultUnchecke" }
+            },
+            [_vm._v("Безопасность")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-control custom-checkbox" }, [
+          _c("input", {
+            staticClass: "custom-control-input",
+            attrs: { type: "checkbox", id: "defaultUnchecked" }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "custom-control-label",
+              attrs: { for: "defaultUnchecked" }
+            },
+            [_vm._v("Должностные инструкции")]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mt-5" }, [
+      _c("div", { staticClass: "col text-center" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-cyan", attrs: { type: "button" } },
+          [_vm._v("Сформировать")]
+        )
+      ])
     ])
   }
 ]
