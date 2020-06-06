@@ -11,6 +11,7 @@
     <style media="screen">
       .h100{
         min-height: 100vh;
+        margin-bottom: 260px;
       }
       .mar{
         margin-top: -222px;
