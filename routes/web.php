@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 Route::post('/fileuploads', 'FileController@uploadFile');
+Route::get('/getlending', 'MainController@getlending');
 // Route::post('/checkTask', 'ApiAppController@checkTask');
