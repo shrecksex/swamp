@@ -22,4 +22,6 @@ Route::post('/delete', 'FileController@delete');
 
 Route::get('/', 'MainController@getlending');
 Route::get('/test', 'TestController@test');
+
+Route::get('/gettext', 'MainController@getText');
 // Route::post('/checkTask', 'ApiAppController@checkTask');
