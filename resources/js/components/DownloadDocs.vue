@@ -66,7 +66,10 @@
 	</div>
 	<div class="row mt-5">
 		<div class="col text-center">
-			<button type="button" class="btn btn-cyan">Сформировать</button>
+			<button type="button" @click="send()" class="btn btn-cyan">Сформировать</button>
+		</div>
+		<div class="col text-center">
+			<button type="button" @click="deleteText()" class="btn btn-danger">Очистить</button>
 		</div>
 	</div>
 </div>
@@ -117,6 +120,17 @@ export default {
 		handleFileUpload() {
 			this.file = this.$refs.file.files[0];
 			this.submitFile()
+		},
+		send(){
+			axios.post("/send", {namefile: this.files[0].path}).then(res=>{
+				console.log(res.data);
+				document.location.href = "/";
+			});
+		},
+		deleteText(){
+			axios.post("/deletetext", {}).then(res=>{
+				console.log(res.data);
+			});
 		}
 	}
 }

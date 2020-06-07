@@ -1982,6 +1982,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     // console.log('Component mounted.')
@@ -2029,6 +2032,19 @@ __webpack_require__.r(__webpack_exports__);
     handleFileUpload: function handleFileUpload() {
       this.file = this.$refs.file.files[0];
       this.submitFile();
+    },
+    send: function send() {
+      axios.post("/send", {
+        namefile: this.files[0].path
+      }).then(function (res) {
+        console.log(res.data);
+        document.location.href = "/";
+      });
+    },
+    deleteText: function deleteText() {
+      axios.post("/deletetext", {}).then(function (res) {
+        console.log(res.data);
+      });
     }
   }
 });
@@ -37647,7 +37663,39 @@ var render = function() {
       _vm._m(4)
     ]),
     _vm._v(" "),
-    _vm._m(5)
+    _c("div", { staticClass: "row mt-5" }, [
+      _c("div", { staticClass: "col text-center" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-cyan",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.send()
+              }
+            }
+          },
+          [_vm._v("Сформировать")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col text-center" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-danger",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.deleteText()
+              }
+            }
+          },
+          [_vm._v("Очистить")]
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -37762,20 +37810,6 @@ var staticRenderFns = [
             attrs: { for: "defaultUnched" }
           },
           [_vm._v("СНиП ")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mt-5" }, [
-      _c("div", { staticClass: "col text-center" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-cyan", attrs: { type: "button" } },
-          [_vm._v("Сформировать")]
         )
       ])
     ])

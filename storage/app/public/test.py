@@ -1,6 +1,6 @@
-def parser(file_name):
+def parser(file_name = "001.rtf"):
     try:
-        f = open(str(file_name),'r')
+        f = open(str("C:/opens/OSPanel/domains/swamp/storage/app/public/"+file_name),'r')
         arr1 = []
         arr2 = []
         arr3 = []
@@ -46,9 +46,12 @@ def parser(file_name):
 import json
 import sys
 
-if __name__ == "__main__":
-    parser("001.rtf")
-else:
-    file_name = str(sys.argv)
-    print("file_name")
-    # parser(file_name)
+file_name = str(sys.argv[1])
+# print(file_name)
+parser(file_name)
+
+##if __name__ == "__main__":
+##    parser()
+##else:
+##    file_name = str(sys.argv)
+##    parser(file_name)

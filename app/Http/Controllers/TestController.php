@@ -10,8 +10,8 @@ class TestController extends Controller
 
     public function test(Request $request)
     {
-      $command = escapeshellcmd('C:\opens\OSPanel\domains\swamp\storage\app\public\test.py "hello"');
-      $output = shell_exec($command);
+      // $command = escapeshellcmd();
+      $output = shell_exec('C:\opens\OSPanel\domains\swamp\storage\app\public\test.py 001.rtf');
       dump($output);
     }
   }

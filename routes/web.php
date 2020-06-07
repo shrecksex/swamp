@@ -19,6 +19,7 @@ Route::post('/fileuploads', 'FileController@uploadFile');
 Route::post('/getfiles', 'FileController@getFiles');
 Route::post('/delete', 'FileController@delete');
 Route::post('/send', 'FileController@send');
+Route::post('/deletetext', 'FileController@deleteText');
 
 
 Route::get('/', 'MainController@getlending');
