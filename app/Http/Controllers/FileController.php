@@ -37,7 +37,7 @@ class FileController extends Controller
      }
 
      public function send(Request $requset){
-       $command = escapeshellcmd('C:\opens\OSPanel\domains\swamp\app\Http\Controllers\test.py');
+       $command = escapeshellcmd('C:\opens\OSPanel\domains\swamp\storage\app\public\test.py');
        $output = shell_exec($command);
        
        return "true";
