@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 use App\File;
+use App\Header;
+use App\Text;
 
 class FileController extends Controller
 {
@@ -31,6 +33,13 @@ class FileController extends Controller
        $files = File::find($request->id);
        Storage::delete( "public/".$files->path);
        $files->delete();
+       return "true";
+     }
+
+     public function send(Request $requset){
+       $command = escapeshellcmd('C:\opens\OSPanel\domains\swamp\app\Http\Controllers\test.py');
+       $output = shell_exec($command);
+       
        return "true";
      }
 }

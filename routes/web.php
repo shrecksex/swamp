@@ -18,6 +18,7 @@ Route::get('/add', function () {
 Route::post('/fileuploads', 'FileController@uploadFile');
 Route::post('/getfiles', 'FileController@getFiles');
 Route::post('/delete', 'FileController@delete');
+Route::post('/send', 'FileController@send');
 
 
 Route::get('/', 'MainController@getlending');
